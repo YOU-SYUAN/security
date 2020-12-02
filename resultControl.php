@@ -1,6 +1,5 @@
 <?php
 require("dbconnect.php");
-// $id=(int)$_POST['id'];
 $period=mysqli_real_escape_string($conn,$_POST['period']);
 $num=mysqli_real_escape_string($conn,$_POST['num']);
 $price=mysqli_real_escape_string($conn,$_POST['price']);
