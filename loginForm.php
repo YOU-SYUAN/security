@@ -10,4 +10,5 @@ Password : <input type="password" name="password"><br />
 <input type="submit">
 </form>
 
-<a href='getUserPassword.php'>Tell me passwords</A>
+<a href='getUserPassword.php'>忘記密碼</a>
+<a href='enroll.php?uid=-1'>註冊</a>
