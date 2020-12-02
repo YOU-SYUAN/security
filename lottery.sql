@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 
--- 伺服器版本： 10.4.8-MariaDB
--- PHP 版本： 7.3.10
+-- 產生時間： 2020-12-02 09:49:52
+-- 伺服器版本： 10.4.13-MariaDB
+-- PHP 版本： 7.4.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -43,7 +42,7 @@ CREATE TABLE `lottery_list` (
 --
 
 INSERT INTO `lottery_list` (`period`, `startTime`, `endTime`, `showDate`, `winNum`, `bonus`, `count`) VALUES
-(0, '2020-11-30 00:00:00.0', '2020-12-02 23:59:59.0', '2020-12-03 20:00:00.0', 33, 500, 0);
+(1, '2020-11-30 00:00:00.0', '2020-12-02 23:59:59.0', '2020-12-03 20:00:00.0', 33, 500, 0);
 
 -- --------------------------------------------------------
 
@@ -57,7 +56,7 @@ CREATE TABLE `record` (
   `period` int(10) NOT NULL,
   `num` int(10) NOT NULL,
   `price` int(10) NOT NULL,
-  `sign` varchar(100) NOT NULL
+  `sign` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -75,18 +74,20 @@ INSERT INTO `record` (`id`, `uid`, `period`, `num`, `price`, `sign`) VALUES
 
 CREATE TABLE `user` (
   `uid` int(10) NOT NULL,
-  `account` varchar(20) NOT NULL,
-  `password` varchar(20) NOT NULL,
-  `public key` varchar(1000) NOT NULL,
-  `private key` varchar(1000) NOT NULL
+  `name` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `account` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `phone` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `public key` varchar(1000) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `private key` varchar(1000) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- 傾印資料表的資料 `user`
 --
 
-INSERT INTO `user` (`uid`, `account`, `password`, `public key`, `private key`) VALUES
-(1, 'test', 'test', '', '');
+INSERT INTO `user` (`uid`, `name`, `account`, `password`, `phone`, `public key`, `private key`) VALUES
+(1, 'yoyo', 'test', 'test', '0977323123', '', '');
 
 --
 -- 已傾印資料表的索引
@@ -109,6 +110,28 @@ ALTER TABLE `record`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`uid`);
+
+--
+-- 在傾印的資料表使用自動遞增(AUTO_INCREMENT)
+--
+
+--
+-- 使用資料表自動遞增(AUTO_INCREMENT) `lottery_list`
+--
+ALTER TABLE `lottery_list`
+  MODIFY `period` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- 使用資料表自動遞增(AUTO_INCREMENT) `record`
+--
+ALTER TABLE `record`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- 使用資料表自動遞增(AUTO_INCREMENT) `user`
+--
+ALTER TABLE `user`
+  MODIFY `uid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
