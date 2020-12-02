@@ -5,8 +5,8 @@ $_SESSION['account'] = "";
 ?>
 <h1>Login Form</h1><hr />
 <form method="post" action="loginCheck.php">
-account  : <input type="text" name="account"><br />
-Password : <input type="password" name="pwd"><br />
+Account  : <input type="text" name="account"><br />
+Password : <input type="password" name="password"><br />
 <input type="submit">
 </form>
 
