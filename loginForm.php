@@ -1,11 +1,11 @@
 <?php
 session_start();
 //set the login mark to empty
-$_SESSION['uID'] = "";
+$_SESSION['account'] = "";
 ?>
 <h1>Login Form</h1><hr />
 <form method="post" action="loginCheck.php">
-User Name: <input type="text" name="id"><br />
+account  : <input type="text" name="account"><br />
 Password : <input type="password" name="pwd"><br />
 <input type="submit">
 </form>

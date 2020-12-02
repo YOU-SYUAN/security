@@ -2,14 +2,14 @@
 session_start();
 require("userModel.php");
 
-$userName = $_POST['id'];
+$userName = $_POST['account'];
 $passWord = $_POST['pwd'];
 
 if (checkUserIDPwd($userName, $passWord)) {
-	$_SESSION['uID'] = $userName;
+	$_SESSION['account'] = $userName;
 	header("Location: todoListView.php");
 } else {
-	$_SESSION['uID']="";
+	$_SESSION['account']="";
 	header("Location: loginForm.php");
 }
 ?>
