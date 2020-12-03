@@ -18,10 +18,11 @@ $rs=mysqli_fetch_assoc($result)
 </head>
 <body>
 <h1>下注表單</h1>
+<table id = bet width="300" border="5">
 <form method="post" action="resultControl.php">
-    下注編號 : <?php echo $rs['id'] ?></br>
+    <tr><td>下注編號</td><td> <?php echo $rs['id'] ?></td>
 
-    期數 : </br>
+    <tr><td>期數 : </td></tr>
     
     開獎時間 : </br>
 

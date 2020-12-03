@@ -35,11 +35,12 @@ $rs=mysqli_fetch_assoc($result)
 <style type="text/css">
 #bet {
     margin :auto;
+    font-family: 微軟正黑體;
 }
 </style>
 <body>
 <h1 align = "center">下注表單</h1>
-<table id = bet width="300" border="2">
+<table id = bet width="300" border="5">
 <form method="post" action="betControl.php">
     <tr><td><input name="period" type="hidden" id="period" value="<?php echo $rs['period']?>"/> </td></tr>
 
