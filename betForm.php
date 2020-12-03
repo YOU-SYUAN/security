@@ -32,32 +32,39 @@ $rs=mysqli_fetch_assoc($result)
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>lottery</title>
 </head>
+<style type="text/css">
+#bet {
+    margin :auto;
+}
+</style>
 <body>
-<h1>下注表單</h1>
+<h1 align = "center">下注表單</h1>
+<table id = bet width="300" border="2">
 <form method="post" action="betControl.php">
-    <input name="period" type="hidden" id="period" value="<?php echo $rs['period']?>"/> <br>
+    <tr><td><input name="period" type="hidden" id="period" value="<?php echo $rs['period']?>"/> </td></tr>
 
-    本期下注期間 : <?php echo $rs['startTime'], " ~ ", $rs['endTime'] ?> </br>
+    <tr><td>本期下注期間</td> <td> <?php echo $rs['startTime'], " ~ ", $rs['endTime'] ?> <td></tr>
 
-    本期開獎時間 : <?php echo $rs['showDate'] ?></br>
+    <tr><td>本期開獎時間</td> <td><?php echo $rs['showDate'] ?></td></tr>
 
-    目前累積獎金 : <?php echo $rs['bonus'] ?></br>
+    <tr><td>目前累積獎金</td> <td><?php echo $rs['bonus'] ?></td></tr>
 
-    下注號碼 : 
-            <select name="num" id="num"><option>請選擇你要的號碼</option>
+    <tr><td>下注號碼</td> 
+            <td><select name="num" id="num"><option>請選擇你要的號碼</option>
             <?php 
             for ($i=1; $i<44; $i++)
                 echo '<option value ="', $i, '">', $i, '</option>';
             ?>
             </select>
-            </br>
+            </td></tr>
 
-    下注金額 : <input name="price" type="text" id="price" /></br>
+    <tr><td>下注金額</td> <td><input name="price" type="text" id="price" /></td></tr>
 
-    請輸入你的金鑰 : <input name="key" type="message" id="key" /></br>
+    <tr><td>請輸入你的金鑰</td> <td><input name="key" type="message" id="key" /></td></tr>
 
-    <input type="submit" name="Submit" value="確認下注" />
+    <tr><td align = "center"><input type="submit" name="Submit" value="確認下注" /></td></tr>
 </form>
+</table>
 </tr>
 </table>
 </body>
