@@ -20,7 +20,12 @@ if ($result = mysqli_query($conn,$sql)) {
 return $isValid;
 }
 
-
+function getUserId(){
+	global $conn;
+	$sql="select uid from user;";
+	$result=mysqli_query($conn,$sql) or die("DB Error: Cannot retrieve message.");
+	return $result;
+}
 
 function getUserPwd() {
 	global $conn;

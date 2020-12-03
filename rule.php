@@ -34,7 +34,7 @@ background-color: ivory;
 這邊是我們的下注規則!!!!!
 </div><br>
 <div id = "btns" align="center">
-<button id = "start" onclick="location.href='betForm.php'>Start</button> 
+<button id = "start" onclick="location.href='betForm.php'">Start</button> 
 </div>
 
 </body>
