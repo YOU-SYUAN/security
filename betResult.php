@@ -1,5 +1,8 @@
 <?php
 session_start();
+if (! isset($_SESSION['account']) or $_SESSION['account']<="") {
+	header("Location: loginForm.php");
+} 
 require("dbconnect.php");
 $sql = "select * from record ;";
 $result=mysqli_query($conn,$sql) or die("DB Error: Cannot retrieve message.");
@@ -28,7 +31,7 @@ $rs=mysqli_fetch_assoc($result)
 
     下注金額 : <?php echo $rs['price'] ?></br>
 
-    <button id = "home" onclick="location.href='playgame'">Home</button> 
+    <button id = "home" onclick="location.href='firstview.php'">Home</button> 
 </form>
 </tr>
 </table>

@@ -12,6 +12,6 @@ if ($key) { //if title is not empty
 } else {
 	$msg = "key cannot be empty <br>";
 }
-header("Location:betResult.php?m=$msg");
+header("Location:betResult.php");
 
 ?>

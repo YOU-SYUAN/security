@@ -1,8 +1,8 @@
 <?php
 session_start();
-if (! isset($_SESSION['account'])) {
+if (! isset($_SESSION['account']) or $_SESSION['account']<="") {
 	header("Location: loginForm.php");
-}
+} 
 require("dbconnect.php");
 // $id = (int)$_GET['id'];
 
@@ -34,7 +34,7 @@ $rs=mysqli_fetch_assoc($result)
 </head>
 <body>
 <h1>下注表單</h1>
-<form method="post" action="bettingControl.php">
+<form method="post" action="betControl.php">
     <input name="period" type="hidden" id="period" value="<?php echo $rs['period']?>"/> <br>
 
     本期下注期間 : <?php echo $rs['startTime'], " ~ ", $rs['endTime'] ?> </br>
