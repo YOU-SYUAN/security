@@ -1,17 +1,17 @@
 <?php
 require("dbconnect.php");
-// $id=(int)$_POST['id'];
+$account=$_GET['account'];
+//$account=mysqli_real_escape_string($conn,$_POST['account']);
 $period=mysqli_real_escape_string($conn,$_POST['period']);
 $num=mysqli_real_escape_string($conn,$_POST['num']);
 $price=mysqli_real_escape_string($conn,$_POST['price']);
 $key=mysqli_real_escape_string($conn,$_POST['key']);
-
 if ($key) { //if title is not empty
-	$sql = "insert into record (period, num, price) values ('$period', '$num', '$price');";
+	$sql = "insert into record (account,period, num, price) values ('$account', '$period', '$num', '$price');";
 	mysqli_query($conn, $sql) or die("Insert failed, SQL query error"); //執行SQL
 } else {
 	$msg = "key cannot be empty <br>";
 }
-header("Location:betResult.php");
+header("Location:betResult.php?account=$account");
 
 ?>

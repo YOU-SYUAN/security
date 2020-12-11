@@ -1,12 +1,12 @@
 <?php
 require_once("dbconnect.php");
 
-function checkUserIDPwd($userName, $passWord) {
+function checkUserIDPwd($account, $passWord) {
 	global $conn;
-$userName = mysqli_real_escape_string($conn,$userName);
+$account = mysqli_real_escape_string($conn,$account);
 $isValid = false;
 
-$sql = "SELECT password FROM user WHERE account='$userName'";
+$sql = "SELECT password FROM user WHERE account='$account'";
 if ($result = mysqli_query($conn,$sql)) {
 	if ($row=mysqli_fetch_assoc($result)) {
 		if ($row['password'] == $passWord) {
@@ -20,9 +20,9 @@ if ($result = mysqli_query($conn,$sql)) {
 return $isValid;
 }
 
-function getUserId(){
+function getUserId($account){
 	global $conn;
-	$sql="select uid from user;";
+	$sql="select account from user where account='$account';";
 	$result=mysqli_query($conn,$sql) or die("DB Error: Cannot retrieve message.");
 	return $result;
 }
@@ -34,7 +34,7 @@ function getUserPwd() {
 	return $result;
 }
 
-function setUserPassword($userName){
+function setUserPassword($account){
 		return false;
 }
 

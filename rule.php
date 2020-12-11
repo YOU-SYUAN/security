@@ -3,6 +3,7 @@ session_start();
 if (! isset($_SESSION['account']) or $_SESSION['account']<="") {
 	header("Location: loginForm.php");
 } 
+$account = $_GET['account'];
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -34,7 +35,8 @@ background-color: ivory;
 這邊是我們的下注規則!!!!!
 </div><br>
 <div id = "btns" align="center">
-<button id = "start" onclick="location.href='betForm.php'">Start</button> 
+<a href='betForm.php?account=<?php echo $account ?>'>
+<button id = "start" onclick="location.href='betForm.php'">Start</button> </a>
 </div>
 
 </body>
