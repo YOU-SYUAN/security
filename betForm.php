@@ -11,22 +11,7 @@ $sql = "select * from lottery_list ;";
 $result=mysqli_query($conn,$sql) or die("DB Error: Cannot retrieve message.");
 $rs=mysqli_fetch_assoc($result)
 ?>
-<?php
-// session_start();
-// if (! isset($_SESSION['uID']) or $_SESSION['uID']!="boss") {
-// 	header("Location: loginForm.php");
-// } 
 
-// require("todoModel.php");
-
-// $id = (int)$_GET['id'];
-// $rs = getJobDetail($id);
-// if (! $rs) {
-// 	echo "no data found";
-// 	exit(0);
-// }
-
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
