@@ -6,8 +6,7 @@ if (! isset($_SESSION['account']) or $_SESSION['account']<="") {
 require("dbconnect.php");
 $account = $_GET['account'];
 //$sql = "select period from lotter_list where getdate() between startTime and endTime;";
-//$period=mysqli_query($conn,$sql) or die("DB Error: Cannot select message.");
-$sql = "select * from lottery_list ;";
+$sql = "select * from lottery_list  where now() between startTime and endTime;";
 $result=mysqli_query($conn,$sql) or die("DB Error: Cannot retrieve message.");
 $rs=mysqli_fetch_assoc($result)
 ?>
@@ -16,7 +15,7 @@ $rs=mysqli_fetch_assoc($result)
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>lottery</title>
+<title>下注-大樂透</title>
 </head>
 <style type="text/css">
 #bet {
@@ -29,7 +28,8 @@ $rs=mysqli_fetch_assoc($result)
 <table id = bet width="300" border="5">
 <form method="post" action="betControl.php?account=<?php echo $account ?>">
     <tr><td>下注帳號</td><td><input value=<?php echo $account ?> /></td></tr>
-    <input name="period" type="hidden" id="period" value="<?php echo $period?>"/> 
+    
+    <input name="period" type="hidden" id="period" value="<?php echo $rs['period']?>"/>
 
     <tr><td>本期下注期間</td> <td> <?php echo $rs['startTime'], " ~ ", $rs['endTime'] ?> </td></tr>
 

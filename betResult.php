@@ -5,11 +5,13 @@ if (! isset($_SESSION['account']) or $_SESSION['account']<="") {
 } 
 require("dbconnect.php");
 $account = $_GET['account'];
-$sql = "select record.id, record.account, record.period, record.num, record.price, lottery_list.bonus, lottery_list.ShowDate from record, lottery_list where record.period = lottery_list.period ;";
+$period = $_GET['period'];
+$newID = $_GET['id'];
+
+$sql = "select record.id,  record.num, record.price, lottery_list.bonus, lottery_list.ShowDate from record, lottery_list where record.id = $newID and lottery_list.period = record.period;";
 $result=mysqli_query($conn,$sql) or die("DB Error: Cannot retrieve message.");
 $rs=mysqli_fetch_assoc($result);
 
-// $sql = "select "
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -26,7 +28,7 @@ $rs=mysqli_fetch_assoc($result);
 
     <tr><td>下注帳號</td><td> <?php echo $account ?></td>
 
-    <tr><td>期數 </td><td><?php echo $rs['period']?></tr>
+    <tr><td>期數 </td><td><?php echo $period?></tr>
     
     <tr><td>開獎時間</td><td> <?php echo $rs['ShowDate']?></td></tr>
 
