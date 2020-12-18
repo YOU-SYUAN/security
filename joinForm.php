@@ -1,5 +1,8 @@
 <?php
 session_start();
+// if (! isset($_SESSION['account']) or $_SESSION['account']<="") {
+// 	header("Location: loginForm.php");
+// } 
 require("dbconnect.php");
 //$uid = $_GET['uid'];
 $account = $_GET['account'];
