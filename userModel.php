@@ -17,7 +17,7 @@ if ($result = mysqli_query($conn,$sql)) {
 		}
 	}
 }
-return $isValid;
+return $isValid; 
 }
 
 function getUserId($account){

@@ -17,6 +17,6 @@ $sql_3 = "select * from record order by id DESC;";
 $result=mysqli_query($conn,$sql_3) or die("DB Error: Cannot retrieve message.");
 $rs=mysqli_fetch_assoc($result);
 $newID = $rs['id'];
-header("Location:betResult.php?id=$newID");
+header("Location:betResult.php?account=$account&rid=$newID");
 
 ?>

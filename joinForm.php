@@ -1,15 +1,12 @@
 <?php
 session_start();
-// if (! isset($_SESSION['account']) or $_SESSION['account']<="") {
-// 	header("Location: loginForm.php");
-// } 
+if (! isset($_SESSION['account']) or $_SESSION['account']<="") {
+	header("Location: loginForm.php");
+} 
 require("dbconnect.php");
-//$uid = $_GET['uid'];
 $account = $_GET['account'];
-echo $account;
 $sql = "select * from user,record where user.account = record.account and user.account='$account' ;";
 $result=mysqli_query($conn,$sql) or die("DB Error: Cannot retrieve message.");
-//echo $result;
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
