@@ -5,10 +5,10 @@ if (! isset($_SESSION['account']) or $_SESSION['account']<="") {
 } 
 require("dbconnect.php");
 $account = $_GET['account'];
-//$sql = "select period from lotter_list where getdate() between startTime and endTime;";
 $sql = "select * from lottery_list  where now() between startTime and endTime;";
 $result=mysqli_query($conn,$sql) or die("DB Error: Cannot retrieve message.");
-$rs=mysqli_fetch_assoc($result)
+$rs=mysqli_fetch_assoc($result);
+$r = rand(0, 1000);
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -53,8 +53,12 @@ body {
 
     <tr><td>請輸入你的金鑰</td> <td><input name="key" type="message" id="key" /></td></tr>
 
+    <input name="salt" type="hidden" id="salt" value=<?php echo $r?>/>
+
     <tr><td align = "center"><input type="submit" name="Submit" value="確認下注" /></td></tr>
+
 </form>
+
 </table>
 </body>
 </html>
