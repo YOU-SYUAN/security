@@ -18,6 +18,9 @@ $rs=mysqli_fetch_assoc($result)
 <title>下注-大樂透</title>
 </head>
 <style type="text/css">
+body {
+	background-color: whitesmoke;
+}
 #bet {
     margin :auto;
     font-family: 微軟正黑體;

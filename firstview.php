@@ -12,14 +12,14 @@ $account = $_GET['account'];
 <title>首頁-大樂透</title>
 <style type="text/css">
 body {
-	background-color: peachpuff;
+	background-color: gainsboro;
 }
 #bet {
 width: 120px;
 height: 60px;
 font-size:24px;
 font-family: 微軟正黑體;
-border: 5px double burlywood;
+border: 5px double grey;
 background-color: ivory;
 }
 #join {
@@ -27,7 +27,7 @@ width: 120px;
 height: 60px;
 font-size:24px;
 font-family: 微軟正黑體;
-border: 5px double burlywood;
+border: 5px double grey;
 background-color: ivory;
 }
 </style>

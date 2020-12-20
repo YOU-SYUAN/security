@@ -11,11 +11,15 @@ $account = $_GET['account'];
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>規則說明-大樂透</title>
 <style type="text/css">
+body {
+	background-color: whitesmoke;
+}
 #rule {
     width:600px;
     height:350px;
     margin: auto;
-    background-color: lightblue;
+    border: 3px double gray;
+    background-color: ghostwhite;
 }
 #start {
 width: 120px;
