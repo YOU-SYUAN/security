@@ -16,7 +16,7 @@ $rs=mysqli_fetch_assoc($result);
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>lottery</title>
 <a href='firstview.php?account=<?php echo $account ?>'>
-<button id = "home" onclick="location.href='firstview.php?account<? =$account>'">Home</button> </a>
+<button id = "home" onclick="location.href='firstview.php'">Home</button> </a>
 </head>
 <body>
 <h1>下注結果</h1>
