@@ -5,7 +5,7 @@ if (! isset($_SESSION['account']) or $_SESSION['account']<="") {
 } 
 require("dbconnect.php");
 $account = $_GET['account'];
-$sql = "select * from user,record where user.account = record.account and user.account='$account' ;";
+$sql = "select * from user,record where user.account = record.account and user.account='$account';";
 $result=mysqli_query($conn,$sql) or die("DB Error: Cannot retrieve message.");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -50,11 +50,11 @@ border:2px double gray;
 <script type="text/javascript">
 var ww = window.innerWidth; 
 var hh = window.innerHeight; 
-window.onload=function() {
-	$("confirm").onclick = updatestate;
+/*window.onload=function() {
+    $("confirm").onclick = updatestate;
     console.log(ww);
-	console.log(hh);
-};
+    console.log(hh);
+};*/
 function updatestate() {
     $("CONFIRM").style.display = "block";
 }
@@ -101,17 +101,24 @@ while (	$rs=mysqli_fetch_assoc($result)) {
     echo "<td>" , htmlspecialchars($rs['price']), "</td>";
     echo "<td>{$rs['num']}</td>" ;
     echo "<td> {$rs['status']}</td>";
-    echo "<td><input type='button' id ='confirm' value='確認'></td>";
+    echo "<td><input type='button' id ='confirm' value='參加' onclick='updatestate()'></td>";
     //echo "<td><button onclick="">確認</button></td>";
 }
 //header("Location: todoListView.php?m=$msg");
 ?>
 </table>
 
+<?php
+$sql_3 = "select * from user,record where user.account = record.account and user.account='$account';";
+$result=mysqli_query($conn,$sql_3) or die("DB Error: Cannot retrieve message.");
+$rs=mysqli_fetch_assoc($result);
+$id = $rs['id'];
+?>
 
 <div id="CONFIRM">
 <p align="center" style="color:white">確定要參加嗎?</p>
-<button id="sure2" onclick ="go()">確定</button>
+<a href='update.php?id=<?php echo $id ?>&account=<?php echo $account?>'>
+<button id="sure2" onclick ="location.href='update.php'">確定</button></a>
 <button id="cancel2" onclick="hide()">取消</button>
 </div>
 
