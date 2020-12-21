@@ -47,32 +47,15 @@ margin:80px 0 0 50px;
 border:2px double gray;
 }
 </style>
-<script type="text/javascript">
-var ww = window.innerWidth; 
-var hh = window.innerHeight; 
-/*window.onload=function() {
-    $("confirm").onclick = updatestate;
-    console.log(ww);
-    console.log(hh);
-};*/
-function updatestate() {
-    $("CONFIRM").style.display = "block";
+<script type="text/javascript"> 
+function updatestate(id, account) {
+    console.log(id);
+    ans = confirm('你確定要參加嗎');
+    if(ans) {
+        location.href = `update.php?id=${id}&account=${account}`
+    }
 }
-function hide() {
-    $("CONFIRM").style.display = "none";
-}
-/*function go() {
-    global $conn;
-    $sql= "update record set status = 1;"
-    mysqli_query($conn,$sql) or die("Insert failed, SQL query");
-}*/
-/*document.getElementById("bt").addEventListener("click",function(){
-    swal({
-        title:"確定要參加?",
-        icon:"waring",
-        buttons:true,
-    });
-});*/
+
 function $(id) {
    return document.getElementById(id);
 }
@@ -94,33 +77,17 @@ function $(id) {
 </tr>
 <?php
 while (	$rs=mysqli_fetch_assoc($result)) {
+
     echo "<tr><td>" . $rs['id'] . "</td>";
 	echo "<td>" . $rs['account'] . "</td>";
 	echo "<td>{$rs['period']}</td>";
-    //echo "<td>" , htmlspecialchars($rs['period']), "</td>";
     echo "<td>" , htmlspecialchars($rs['price']), "</td>";
     echo "<td>{$rs['num']}</td>" ;
     echo "<td> {$rs['status']}</td>";
-    echo "<td><input type='button' id ='confirm' value='參加' onclick='updatestate()'></td>";
-    //echo "<td><button onclick="">確認</button></td>";
+    echo "<td><input type='button' id={$rs['id']} value='參加' onclick='updatestate(this.id, \"$account\")'></td>";
 }
 //header("Location: todoListView.php?m=$msg");
 ?>
 </table>
-
-<?php
-$sql_3 = "select * from user,record where user.account = record.account and user.account='$account';";
-$result=mysqli_query($conn,$sql_3) or die("DB Error: Cannot retrieve message.");
-$rs=mysqli_fetch_assoc($result);
-$id = $rs['id'];
-?>
-
-<div id="CONFIRM">
-<p align="center" style="color:white">確定要參加嗎?</p>
-<a href='update.php?id=<?php echo $id ?>&account=<?php echo $account?>'>
-<button id="sure2" onclick ="location.href='update.php'">確定</button></a>
-<button id="cancel2" onclick="hide()">取消</button>
-</div>
-
 </body>
 </head>
