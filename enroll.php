@@ -19,13 +19,15 @@ session_start();
 <body>
 <h1>註冊帳號</h1>
 <form method="post" action="addaccount.php">
+<table width="300" border="5">
 	  <!-- <input type='hidden' name='uid' > -->
-      name: <input name="name" type="text" id="name" /> <br>
-      account: <input name="account" type="text" id="account" /> <br>
-      passord: <input name="password" type="password" id="password" /> <br>
-      phone: <input name="phone" type="text" id="phone" /> <br>
+      <tr><td> name </td><td><input name="name" type="text" id="name" /> </td></tr>
+      <tr><td>account </td><td><input name="account" type="text" id="account" /> </td></tr>
+      <tr><td>passord </td><td><input name="password" type="password" id="password" /> </td></tr>
+      <tr><td>phone </td><td><input name="phone" type="text" id="phone" /> </td></tr>
 	  
-      <input type="submit" name="Submit" value="註冊" />
+      <td><input type="submit" name="Submit" value="註冊" /></td>
+  </table>
 	</form>
   </tr>
 </body>
