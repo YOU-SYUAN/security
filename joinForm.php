@@ -86,8 +86,9 @@ while (	$rs=mysqli_fetch_assoc($result)) {
     echo "<td> {$rs['status']}</td>";
     echo "<td><input type='button' id={$rs['id']} value='參加' onclick='updatestate(this.id, \"$account\")'></td>";
 }
-//header("Location: todoListView.php?m=$msg");
+//header("Location: firstview.php?account=$account");
 ?>
+<a href="firstview.php?account=<?php echo $account?>"> HOME </a>
 </table>
 </body>
 </head>

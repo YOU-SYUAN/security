@@ -23,12 +23,13 @@ session_start();
 	  <!-- <input type='hidden' name='uid' > -->
       <tr><td> name </td><td><input name="name" type="text" id="name" /> </td></tr>
       <tr><td>account </td><td><input name="account" type="text" id="account" /> </td></tr>
-      <tr><td>passord </td><td><input name="password" type="password" id="password" /> </td></tr>
+      <tr><td>password </td><td><input name="password" type="password" id="password" /> </td></tr>
       <tr><td>phone </td><td><input name="phone" type="text" id="phone" /> </td></tr>
 	  
       <td><input type="submit" name="Submit" value="註冊" /></td>
   </table>
 	</form>
   </tr>
+<a href="loginForm.php"> HOME </a>
 </body>
 </html>
