@@ -15,7 +15,7 @@ $result=mysqli_query($conn,$sql) or die("DB Error: Cannot retrieve message.");
 <title>參加開獎-大樂透</title>
 <style type="text/css">
 body {
-	background-color: whitesmoke;
+	background-color: gainsboro;
 }
 #CONFIRM {
 display:none;
@@ -46,13 +46,19 @@ border-radius:12px;
 margin:80px 0 0 50px;
 border:2px double gray;
 }
+#home {
+    width:80px;
+    height:30px;
+    background-color:silver;
+    font-size:26px;
+}
 </style>
 <script type="text/javascript"> 
-function updatestate(id, account) {
+function updatestate(id, account, period) {
     console.log(id);
     ans = confirm('你確定要參加嗎');
     if(ans) {
-        location.href = `update.php?id=${id}&account=${account}`
+        location.href = `update.php?id=${id}&account=${account}&period=${period}`
     }
 }
 
@@ -84,11 +90,13 @@ while (	$rs=mysqli_fetch_assoc($result)) {
     echo "<td>" , htmlspecialchars($rs['price']), "</td>";
     echo "<td>{$rs['num']}</td>" ;
     echo "<td> {$rs['status']}</td>";
-    echo "<td><input type='button' id={$rs['id']} value='參加' onclick='updatestate(this.id, \"$account\")'></td>";
+    echo "<td><input type='button' id={$rs['id']} value='參加' onclick='updatestate(" . $rs['id'] . ",\"".$rs['account']."\",".$rs['period'].")'></td>";
 }
 //header("Location: firstview.php?account=$account");
 ?>
+<div id= "home">
 <a href="firstview.php?account=<?php echo $account?>"> HOME </a>
+</div>
 </table>
 </body>
 </head>

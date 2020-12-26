@@ -36,7 +36,8 @@ background-color: ivory;
 <h1 align="center">下注規則</h1>
 <hr />
 <div id = "rule" align="center">
-這邊是我們的下注規則!!!!!
+下注規則- 
+1.
 </div><br>
 <div id = "btns" align="center">
 <a href='betForm.php?account=<?php echo $account ?>'>
