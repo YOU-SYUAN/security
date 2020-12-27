@@ -14,13 +14,12 @@ session_start();
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>無標題文件</title>
+<title>註冊帳號</title>
 </head>
 <body>
 <h1>註冊帳號</h1>
 <form method="post" action="addaccount.php">
 <table width="300" border="5">
-	  <!-- <input type='hidden' name='uid' > -->
       <tr><td> name </td><td><input name="name" type="text" id="name" /> </td></tr>
       <tr><td>account </td><td><input name="account" type="text" id="account" /> </td></tr>
       <tr><td>password </td><td><input name="password" type="password" id="password" /> </td></tr>
